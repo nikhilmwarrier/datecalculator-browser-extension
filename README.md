@@ -7,4 +7,4 @@ Code repo for Date Calculator, an addon designed for firefox, but also works wit
 
 ***
 
-If you face any issues or bugs, please report it in the [issues](https://github.com/nikhilmwarrier/datecalculator-browser-extension/issues) tab.
+If you face any issues or bugs, or want to request new features, please report it in the [issues](https://github.com/nikhilmwarrier/datecalculator-browser-extension/issues) tab.
