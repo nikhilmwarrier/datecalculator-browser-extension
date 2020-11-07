@@ -33,8 +33,15 @@ document.querySelector('#result').textContent = Difference_In_Days + ' days';
 //theme//
 var checkbox = document.getElementById("ChangeTheme"); //get the checkbox to a variable
 
+// //check storage if dark mode was on or off
+// if (sessionStorage.getItem("mode") == "dark") {
+//   darkmode(); //if dark mode was on, run this funtion
+// } else {
+//   nodark(); //else run this funtion
+// }
+
 //check storage if dark mode was on or off
-if (sessionStorage.getItem("mode") == "dark") {
+if (browser.storage.local.get('mode') == "dark") {
   darkmode(); //if dark mode was on, run this funtion
 } else {
   nodark(); //else run this funtion
@@ -50,44 +57,94 @@ checkbox.addEventListener("change", function() {
   }
 });
 
+// //function for checkbox when checkbox is checked
+// function darkmode() {
+//   document.body.classList.remove("light-mode"); //remove added class from body tag
+//   document.body.classList.add("dark-mode"); //add a class to the body tag
+//   checkbox.checked = true; //set checkbox to be checked state
+//   sessionStorage.setItem("mode", "dark"); //store a name & value to know that dark mode is on
+// }
+
+// //function for checkbox when checkbox is not checked
+// function nodark() {
+//   document.body.classList.add("light-mode"); 
+//   document.body.classList.remove("dark-mode"); //remove added class from body tag
+//   checkbox.checked = false; //set checkbox to be unchecked state
+//   sessionStorage.setItem("mode", "light"); //store a name & value to know that dark mode is off or light mode is on
+// }
+
+
 //function for checkbox when checkbox is checked
 function darkmode() {
   document.body.classList.remove("light-mode"); //remove added class from body tag
   document.body.classList.add("dark-mode"); //add a class to the body tag
   checkbox.checked = true; //set checkbox to be checked state
-  sessionStorage.setItem("mode", "dark"); //store a name & value to know that dark mode is on
-}
+  browser.storage.local.set({
+    'mode': 'light'
+  });
+
 
 //function for checkbox when checkbox is not checked
 function nodark() {
   document.body.classList.add("light-mode"); 
   document.body.classList.remove("dark-mode"); //remove added class from body tag
   checkbox.checked = false; //set checkbox to be unchecked state
-  sessionStorage.setItem("mode", "light"); //store a name & value to know that dark mode is off or light mode is on
+  browser.storage.local.set({
+    'mode': 'dark'
+  });
 }
+}
+// //Notepad localstorage//
+//   var editorKey = 'html5-notepad';
+//   var editor = document.getElementById('editor');
+//   var cache = localStorage.getItem(editorKey);
+
+//   if (cache) {
+//     editor.innerHTML = cache;
+//   }
+
+//   function autosave() {
+//     var newValue = editor.innerHTML;
+//     if (cache != newValue) {
+//       cache = newValue;
+//       localStorage.setItem(editorKey, cache);
+//     }
+//   }
+
+//   editor.addEventListener('input', autosave);
+
+// //clear Notepad//
+// const clearBtn = document.querySelector('#clearBtn');
+
+// clearBtn.addEventListener('click', () => {
+//   editor.value = " ";
+// });
+
 
 //Notepad localstorage//
-  var editorKey = 'html5-notepad';
-  var editor = document.getElementById('editor');
-  var cache = localStorage.getItem(editorKey);
+var editorKey = 'html5-notepad';
+var editor = document.getElementById('editor');
+var cache = browser.storage.local.get('editorKey');
 
-  if (cache) {
-    editor.innerHTML = cache;
+if (cache) {
+  editor.innerHTML = cache;
+}
+
+function autosave() {
+  var newValue = editor.innerHTML;
+  if (cache != newValue) {
+    cache = newValue;
+    browser.storage.local.set({
+      editorKey: cache
+    });;
   }
+}
 
-  function autosave() {
-    var newValue = editor.innerHTML;
-    if (cache != newValue) {
-      cache = newValue;
-      localStorage.setItem(editorKey, cache);
-    }
-  }
-
-  editor.addEventListener('input', autosave);
+editor.addEventListener('input', autosave);
 
 //clear Notepad//
 const clearBtn = document.querySelector('#clearBtn');
 
 clearBtn.addEventListener('click', () => {
-  editor.innerHTML = " ";
+editor.value = " ";
 });

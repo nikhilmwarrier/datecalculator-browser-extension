@@ -1,7 +1,6 @@
 *,
 *::before,
-*::after,
-{
+*::after {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   margin: 0;
@@ -14,13 +13,25 @@ body {
   min-height: 250px;
 }
 
-body, body.light-mode {
+a {
+  text-decoration: none;
+  color: #73ffb9;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body,
+body.light-mode {
   background: #ffffff;
   color: #333333;
   font-family: "Roboto", sans-serif;
   border: 1px solid #333333;
   /* padding: 10px; */
   transition: all 0.2s ease-in-out;
+  margin: 0px;
+  overflow-x: clip;
 }
 
 input#val1,
@@ -42,12 +53,24 @@ button {
   background-color: #73ffb9;
 }
 
-h1 {
+h1,
+h2 {
+  margin: 10px;
+  margin-left: 30px;
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0px;
+}
+
+p {
   margin: 10px;
   margin-left: 30px;
 }
 
-h1.dark-mode{
+h1.dark-mode {
   color: white;
 }
 
@@ -61,11 +84,9 @@ span.to {
   margin-left: 30px;
 }
 
-
-label.light-mode{
+label.light-mode {
   font-size: 0.7rem;
 }
-
 
 #ChangeTheme {
   width: 0;
@@ -74,12 +95,12 @@ label.light-mode{
 }
 label {
   display: block;
-  height: 16px;
+  height: 21px;
   width: 35px;
   position: relative;
-  transform: rotate(0deg) translate(130px, -30px);
+  transform: rotate(0deg) translate(-100px, -3px);
   margin-left: 100px;
-  margin-top: 5px;
+  margin-top: 0px;
 }
 span.slide {
   position: absolute;
@@ -96,7 +117,7 @@ span.slide:before {
   width: 9px;
   background: #000000;
   border-radius: 50%;
-  top: 4px;
+  top: 3px;
   left: 5px;
   transition: 0.5s;
   box-shadow: rgba(0, 0, 0, 0.21) 0px 0px 7px 1px;
@@ -112,10 +133,10 @@ span.slide:before {
   transition: 0.5s;
 }
 #ChangeTheme:checked + span.slide:before {
-  transform: translatex(17px);
+  transform: translatex(12px);
 }
 
-#ChangeTheme:checked+span.slide {
+#ChangeTheme:checked + span.slide {
   background-color: #73ffb9;
 }
 
@@ -141,31 +162,36 @@ body.dark-mode {
   left: 50%;
 } */
 
-p.theme-h{
-  transform: translate(135px, 7px);
+p.theme-h {
+  transform: translate(25px, 27px);
   font-weight: normal;
   font-size: 0.9em;
 }
 
-p#result{
+p#result {
   margin-left: 30px;
 }
 
-div#editor{
+#editor {
+  border: 0px;
   font-family: monospace;
-  font-size: 1.2rem;
-  overflow-x: visible;
-  min-height: 100px;
-  width: 200px; 
-  background-color: #FFD300;
+  font-size: 1rem;
+  min-height: 120px;
+  width: 220px;
+  background-color: #ffd300;
   margin: 10px;
   margin-left: 30px;
   margin-bottom: 10px;
   padding: 10px;
-  padding-left: 20px; 
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   color: black;
+  word-wrap: break-word;
 }
 
-.hidden{display: none;}
-.transparent{opacity: 0;}
+.hidden {
+  display: none;
+}
+.transparent {
+  opacity: 0;
+}
