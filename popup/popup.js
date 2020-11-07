@@ -52,6 +52,7 @@ checkbox.addEventListener("change", function() {
 
 //function for checkbox when checkbox is checked
 function darkmode() {
+  document.body.classList.remove("light-mode"); //remove added class from body tag
   document.body.classList.add("dark-mode"); //add a class to the body tag
   checkbox.checked = true; //set checkbox to be checked state
   sessionStorage.setItem("mode", "dark"); //store a name & value to know that dark mode is on
@@ -59,7 +60,34 @@ function darkmode() {
 
 //function for checkbox when checkbox is not checked
 function nodark() {
+  document.body.classList.add("light-mode"); 
   document.body.classList.remove("dark-mode"); //remove added class from body tag
   checkbox.checked = false; //set checkbox to be unchecked state
   sessionStorage.setItem("mode", "light"); //store a name & value to know that dark mode is off or light mode is on
 }
+
+//Notepad localstorage//
+  var editorKey = 'html5-notepad';
+  var editor = document.getElementById('editor');
+  var cache = localStorage.getItem(editorKey);
+
+  if (cache) {
+    editor.innerHTML = cache;
+  }
+
+  function autosave() {
+    var newValue = editor.innerHTML;
+    if (cache != newValue) {
+      cache = newValue;
+      localStorage.setItem(editorKey, cache);
+    }
+  }
+
+  editor.addEventListener('input', autosave);
+
+//clear Notepad//
+const clearBtn = document.querySelector('#clearBtn');
+
+clearBtn.addEventListener('click', () => {
+  editor.innerHTML = " ";
+});

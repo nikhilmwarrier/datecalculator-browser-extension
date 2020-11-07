@@ -12,19 +12,22 @@
 
   <body>
     <div id="popup-content">
+      <div class="option">
+        <p class="theme-h">Dark Mode</p>
+        <label for="ChangeTheme">
+          <input type="checkbox" id="ChangeTheme" /> <span class="slide"></span>
+        </label>
+<!--         <div class="txt">
+  <p>Light</p>
+  <p>Dark</p>
+</div> -->
+      </div>
       <h1>
         Date Calculator<br />
         <span class="credits">by Nikhil M Warrier</span>
       </h1>
       <!-- <br /> -->
-      <p class="theme-h">Theme</p>
-      <label for="ChangeTheme">
-        <input type="checkbox" id="ChangeTheme" /> <span class="slide"></span>
-      </label>
-      <div class="txt">
-        <p>Light</p>
-        <p>Dark</p>
-      </div>
+      
       <!-- <br /> -->
       <input type="date" id="val1" placeholder="DD/MM/YYYY" />
       <br />
@@ -32,7 +35,11 @@
       <br />
       <input type="date" id="val2" placeholder="DD/MM/YYYY" />
       <button id="calc">Go</button>
-      <p id="result"></p>
+      <p id="result"><span class="transparent">`</span></p>
+      <hr />
+      <h1>Notepad</h1>
+      <div id="editor" contenteditable="true"></div>
+      <button id="clearBtn">Clear</button>
     </div>
     <script src="popup.js"></script>
   </body>
