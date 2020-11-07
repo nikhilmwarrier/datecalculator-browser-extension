@@ -10,24 +10,22 @@
     />
   </head>
 
-  <body>
+  <body class='dark-mode'>
     <div id="popup-content">
-      <div class="option">
+      <!-- <div class="option">
         <p class="theme-h">Dark Mode</p>
         <label for="ChangeTheme">
           <input type="checkbox" id="ChangeTheme" /> <span class="slide"></span>
         </label>
-<!--         <div class="txt">
-  <p>Light</p>
-  <p>Dark</p>
-</div> -->
-      </div>
+      </div> -->
       <h1>
         Date Calculator<br />
-        <span class="credits">by Nikhil M Warrier</span>
+        <a href="https://addons.mozilla.org/user/16414417/">
+          <span class="credits"> by Nikhil M Warrier </span>
+        </a>
       </h1>
       <!-- <br /> -->
-      
+
       <!-- <br /> -->
       <input type="date" id="val1" placeholder="DD/MM/YYYY" />
       <br />
@@ -37,12 +35,10 @@
       <button id="calc">Go</button>
       <p id="result"><span class="transparent">`</span></p>
       <hr />
-      <h1>Notepad</h1>
-      <div id="editor" contenteditable="true"></div>
+      <h2>Quick Notes:</h2>
+      <textarea id="editor" contenteditable="true"></textarea>
       <button id="clearBtn">Clear</button>
     </div>
     <script src="popup.js"></script>
   </body>
 </html>
-
-
